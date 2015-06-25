@@ -1,20 +1,21 @@
 {
-	"name": "NodejsStarterApp",
-	"version": "0.0.1",
-	"description": "A sample nodejs app for Bluemix",
-	"scripts": {
-		"start": "node app.js"
-	},
-	"dependencies": {
-		"express": "4.12.x",
-		"cfenv": "1.0.x",
-		"mongoose"  : "3.8",
-		"morgan" : "~1.1.1",
-    	"body-parser" : "~1.4.3",
-    	"passport" : "latest",      
-    	"method-override" : "~2.1.1",
-    	"cookie-parser" : "latest",
-    	"express-session" : "^1.10.4"
-	},
-	"repository": {}
+  "name": "NodejsStarterApp",
+  "version": "0.0.1",
+  "description": "A sample nodejs app for Bluemix",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "body-parser": "~1.4.3",
+    "cfenv": "1.0.x",
+    "cookie-parser": "latest",
+    "express": "4.12.x",
+    "express-session": "^1.10.4",
+    "method-override": "~2.1.1",
+    "mongodb": "^2.0.35",
+    "mongoose": "3.8",
+    "morgan": "~1.1.1",
+    "passport": "latest"
+  },
+  "repository": {}
 }

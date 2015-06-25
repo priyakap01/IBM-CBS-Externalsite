@@ -3,6 +3,29 @@
 <!--  Container    -->
 <link href="partials/eCustomCss/WelcomeCustom.css" rel="stylesheet" media="screen">
 <link href="../stylesheets/tooltipster.css" rel="stylesheet" media="screen">
+
+<div id="col-sm-12" class="col-sm-12">
+  <div class="Container-Div-class">
+  <!-- Login Message Div -->
+   <div class="loginmessage-div">
+    <div class="header-strip">
+     <div class="ibm-logo-div"><img src="images/ibm-logo.png"/></div>
+     <div class="alert-icon-div"><img src="images/alert-icon.jpg"/></div>
+    </div>
+    <div class="message-content">
+     <p>The content provided here is proprietery to IBM and is intended for use between IBM Geo Client and Jostens and at no point of time should the content represented here be shared with others or used for public viewing. Use of IBM's systems is restricted to management approved purposes and subject to all applicable IBM policies and guidelines.</p>
+     <span><a target="_blank" href="https://w3-03.ibm.com/ibm/documents/corpdocweb.nsf/ObjectFileDocView/BCG+English+%28C%29+2015.pdf/$File/BCG+English+%28C%29+2015.pdf">IBM Business Conduct Guidelines (BCG)</a></span>
+     <p style="margin:0">The Business Conduct Guidelines specify IBM's standard of business ethics, basic values and principles. The guidelines provide general guidence for resolving a variety of legal and ethical questions for employees of IBM, including its subsidiaries and affiliates.</p>
+    </div>
+    <div class="button-div">
+    <button class="agree">I Agree</button>
+    <a href="logout.html" style="text-decration:none; color:#333;"onclick="setTimeout(function(){var ww = window.open(window.location, '_self'); ww.close(); }, 1000);"><button class="decline">Decline</button></a>
+    </div>
+  </div>
+  <!-- Login Message Div -->
+  </div>
+  </div>
+  
 <!--   Menu Wrapper    -->
     <!--  Logo Wrapper    -->
             <div class="LogoWrapper">
@@ -349,7 +372,15 @@
 setTimeout(function(){
 	$(".content").hide(); // hides the content DIV
   $(document).ready(function () {
+    
+    $(".agree").click(function () {
+      $("#col-sm-12").css("display", "none");
+    });
+    
+    
+    
     $(".loading").css("display", "none");
+    
     $("#addevent").click(function () {
      $(".addevent-form").stop().slideDown();
      return false;

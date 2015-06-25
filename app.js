@@ -30,9 +30,17 @@ app.use(function(req, res, next) {
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
     res.header('Access-Control-Allow-Headers', 'Content-Length');
     res.header('Access-Control-Allow-Credentials', 'true');
-    return next();
+    return next();kb
   }); 
 
+function ensureAuthenticated(req, res, next) {
+  if(!req.isAuthenticated()) {
+              req.session.originalUrl = req.originalUrl;
+    res.redirect('/login');
+  } else {
+    return next();
+  }
+}
 
 //MongoDB
 var mongoUrl;
@@ -112,14 +120,6 @@ var Strategy = new OpenIDConnectStrategy({
 passport.use(Strategy); 
 app.get('/login', passport.authenticate('openidconnect',{scope: ['openid'] }));
 
-function ensureAuthenticated(req, res, next) {
-  if(!req.isAuthenticated()) {
-              req.session.originalUrl = req.originalUrl;
-    res.redirect('/login');
-  } else {
-    return next();
-  }
-}
 
 app.get('/auth/sso/callback',function(req,res,next) {
             passport.authenticate('openidconnect',{
@@ -158,18 +158,13 @@ app.listen(appEnv.port, appEnv.bind, function() {
 });
 
 
-//   app.get('/logout',function(req, res) {
-// // //   //passport._strategy('openidconnect').logOut(req, res, 'https://ibm-cbs-externalsite.mybluemix.net/login');
-//  //      req.logout();
-//     //    req.session.destroy(function(err){
-//     //      if (err) { return next(err); }
-//     //       res.send("logged out");
-//     // console.log(req.cookies);
-//          req.session.destroy();
-//          res.redirect('/login');
-// // //     // The response should indicate that the user is no longer authenticated.
-// // //     // return res.send({ authenticated: req.isAuthenticated() });
-//     res.clearCookie();
+  app.get('/logout',function(req, res) {
+// //   //passport._strategy('openidconnect').logOut(req, res, 'https://ibm-cbs-externalsite.mybluemix.net/login');
+ 
+         req.session.destroy();
+         req.logOut();
+          res.clearCookie();
+          res.redirect('/login');
    
-//  });
+ });
 

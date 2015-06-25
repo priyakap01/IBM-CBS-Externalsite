@@ -35,6 +35,9 @@ phonecatControllers.controller('abtCtrl', ['$scope', '$routeParams','$http','$fi
     	console.log("I was clicked");
     	window.location.href="logout.html";
     }
+		
+	
+	
 	
 	
 	$scope.mycalarr = [];
@@ -308,7 +311,7 @@ phonecatControllers.controller('messageCtrl', ['$scope', '$routeParams','$http',
 	});
 	
      //get all the posts in the reply section
-	 $http.get("https://ibm-cbs-externalsite-services.mybluemix.net/msg/getMessageBoardPosts").success(function(data) {
+	 $http.get("https://ibm-cbs-externalsite.mybluemix.net/msg/getMessageBoardPosts").success(function(data) {
 	 	data.reverse();
 		$scope.repliesMessage = data;
 		//comment the userName line below when you are running on bluemix
