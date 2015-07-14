@@ -3,7 +3,6 @@
 //------------------------------------------------------------------------------
 // node.js starter application for Bluemix
 //------------------------------------------------------------------------------
-
 // This application uses express as it's web server
 // for more info, see: http://expressjs.com
 var express = require('express');
